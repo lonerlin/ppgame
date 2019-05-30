@@ -10,7 +10,7 @@
 '''
 import pygame
 from pygame.locals import *
-
+from Point import Point
 
 class MySprite(pygame.sprite.Sprite):
     def __init__(self, target):
@@ -24,6 +24,8 @@ class MySprite(pygame.sprite.Sprite):
         self.last_frame = 0
         self.columns = 1
         self.last_time = 0
+        self.direction=0
+        self.velocity=Point(0.0,0.0)
 
     # X property
     def _getx(self):
@@ -51,6 +53,13 @@ class MySprite(pygame.sprite.Sprite):
         self.rect.topleft = pos
 
     position = property(_getpos, _setpos)
+
+    def _getdir(self):
+            return self.direction
+    def _setdir(self,dir):
+            self.direction=dir
+    Direction=property(_getdir,_setdir)
+
 
     def load(self, filename, width, height, columns):
         self.master_image = pygame.image.load(filename).convert_alpha()

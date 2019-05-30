@@ -107,7 +107,7 @@ while True:
         if you_win:
             print_text(screen,font,330,130,"YOU BEAT THE DRAGON!")
         else:
-            print_text(font,330,130,"THE DRAGON GOT YOU!")
+            print_text(screen,font,330,130,"THE DRAGON GOT YOU!")
 
     pygame.display.update()
 
